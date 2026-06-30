@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ Accordion</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:800px;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.accordion{
+    background:white;
+    border-radius:10px;
+    margin-bottom:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.question{
+    padding:18px 20px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.question:hover{
+    background:#f4f4f4;
+}
+
+.answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+    background:#fafafa;
+}
+
+.answer p{
+    padding:20px;
+    color:#555;
+    line-height:1.6;
+}
+
+.icon{
+    font-size:24px;
+    color:#667eea;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="accordion">
+        <div class="question">
+            What is HTML?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            <p>
+                HTML (HyperText Markup Language) is used to create
+                and structure web pages.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="question">
+            What is CSS?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            <p>
+                CSS (Cascading Style Sheets) is used to style and
+                design web pages.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="question">
+            What is JavaScript?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            <p>
+                JavaScript is a programming language used to add
+                interactivity and dynamic features to websites.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="question">
+            Is this FAQ section responsive?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            <p>
+                Yes, this FAQ accordion is fully responsive and
+                works on desktop, tablet, and mobile devices.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const questions = document.querySelectorAll(".question");
+
+questions.forEach(question => {
+    question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector(".icon");
+
+        if(answer.style.maxHeight){
+            answer.style.maxHeight = null;
+            icon.textContent = "+";
+        }
+        else{
+            answer.style.maxHeight =
+            answer.scrollHeight + "px";
+            icon.textContent = "−";
+        }
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Blog</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+/* Navbar */
+nav{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#6c63ff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#6c63ff;
+}
+
+/* Hero Section */
+.hero{
+    height:90vh;
+    background:linear-gradient(rgba(0,0,0,.5),
+    rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.btn{
+    text-decoration:none;
+    background:#6c63ff;
+    color:white;
+    padding:14px 30px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#5548ff;
+}
+
+/* Blog Section */
+.blog-section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+    color:#333;
+}
+
+.blog-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.blog-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:.4s;
+}
+
+.blog-card:hover{
+    transform:translateY(-10px);
+}
+
+.blog-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.blog-content{
+    padding:20px;
+}
+
+.blog-content h3{
+    margin-bottom:10px;
+    color:#333;
+}
+
+.blog-content p{
+    color:#666;
+    line-height:1.6;
+}
+
+.read-more{
+    display:inline-block;
+    margin-top:15px;
+    color:#6c63ff;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* Footer */
+footer{
+    background:#1e1e2f;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+@media(max-width:768px){
+    .hero-content h1{
+        font-size:40px;
+    }
+
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        margin-top:15px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">📝 BlogSphere</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Share Your Stories</h1>
+        <p>Discover ideas, inspiration, and creativity from writers around the world.</p>
+        <a href="#" class="btn">Explore Blogs</a>
+    </div>
+</section>
+
+<section class="blog-section">
+
+    <h2 class="section-title">Latest Articles</h2>
+
+    <div class="blog-container">
+
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800" alt="">
+            <div class="blog-content">
+                <h3>Technology Trends 2026</h3>
+                <p>Explore the latest innovations shaping the future of technology and digital transformation.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" alt="">
+            <div class="blog-content">
+                <h3>Travel Beyond Limits</h3>
+                <p>Experience breathtaking destinations and hidden gems from around the world.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800" alt="">
+            <div class="blog-content">
+                <h3>Healthy Lifestyle Guide</h3>
+                <p>Learn simple habits and routines that can improve your health and productivity.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 BlogSphere | Designed with Creativity ❤️</p>
+</footer>
+
+</body>
+</html>

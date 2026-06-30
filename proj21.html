@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+/* Navbar */
+nav{
+    background:#111827;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+}
+
+.menu li{
+    margin-left:20px;
+}
+
+.menu li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.menu li a:hover{
+    color:#38bdf8;
+}
+
+/* Hero Section */
+.hero{
+    height:90vh;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    font-size:22px;
+    margin:15px 0;
+}
+
+.btn{
+    padding:12px 25px;
+    background:white;
+    color:#2563eb;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* Sections */
+section{
+    padding:60px 10%;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#333;
+}
+
+/* About */
+.about{
+    text-align:center;
+    line-height:1.8;
+}
+
+/* Skills */
+.skills{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    padding:15px 25px;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Projects */
+.projects{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.project{
+    width:300px;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.project img{
+    width:100%;
+    height:180px;
+}
+
+.project h3{
+    padding:15px;
+}
+
+.project p{
+    padding:0 15px 15px;
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px 0;
+}
+
+/* Footer */
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+    }
+
+    .menu{
+        margin-top:10px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">MyPortfolio</div>
+
+    <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <h1>Hello, I'm John Doe</h1>
+    <p>Web Developer & UI Designer</p>
+    <a href="#contact" class="btn">Hire Me</a>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+
+    <div class="about">
+        <p>
+            I am a passionate web developer with experience
+            in HTML, CSS, JavaScript and responsive web design.
+            I love building attractive and user-friendly websites.
+        </p>
+    </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+    <h2>My Skills</h2>
+
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Bootstrap</div>
+        <div class="skill">React</div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="projects">
+
+        <div class="project">
+            <img src="https://picsum.photos/300/180?1">
+            <h3>Portfolio Website</h3>
+            <p>Personal portfolio created using HTML and CSS.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://picsum.photos/300/180?2">
+            <h3>E-Commerce Site</h3>
+            <p>Online shopping website with responsive design.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://picsum.photos/300/180?3">
+            <h3>Dashboard</h3>
+            <p>Modern admin dashboard with analytics.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Me</h2>
+
+    <div class="contact">
+        <p>📧 immanuvel@gmail.com</p>
+        <p>📞 +91 7397102746</p>
+        <p>📍 coimbatore, India</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 My Portfolio | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Registration Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:800px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.header{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.header h1{
+    margin-bottom:10px;
+}
+
+.form-container{
+    padding:30px;
+}
+
+.row{
+    display:flex;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.input-group{
+    flex:1;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#333;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+.gender{
+    margin-bottom:20px;
+}
+
+.gender label{
+    margin-right:15px;
+}
+
+.btn{
+    width:100%;
+    padding:14px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+@media(max-width:768px){
+    .row{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Registration Form</h1>
+        <p>Create Your Account</p>
+    </div>
+
+    <div class="form-container">
+
+        <form>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>First Name</label>
+                    <input type="text" placeholder="Enter First Name">
+                </div>
+
+                <div class="input-group">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Enter Last Name">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter Email">
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Enter Phone Number">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create Password">
+                </div>
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Country</label>
+                <select>
+                    <option>Select Country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                    <option>Canada</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div class="gender">
+                <strong>Gender:</strong><br><br>
+
+                <label>
+                    <input type="radio" name="gender"> Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender"> Female
+                </label>
+
+                <label>
+                    <input type="radio" name="gender"> Other
+                </label>
+            </div>
+
+            <div class="input-group">
+                <label>Address</label>
+                <textarea rows="4" placeholder="Enter Address"></textarea>
+            </div>
+
+            <br>
+
+            <button class="btn">
+                Register Now
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

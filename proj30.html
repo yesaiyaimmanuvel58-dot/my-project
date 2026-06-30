@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Gallery</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    padding:40px;
+}
+
+.gallery-title{
+    text-align:center;
+    color:white;
+    font-size:3rem;
+    margin-bottom:40px;
+    text-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    cursor:pointer;
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.gallery-item img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.15);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,0.8)
+    );
+    color:white;
+    transform:translateY(100%);
+    transition:0.4s;
+}
+
+.gallery-item:hover .overlay{
+    transform:translateY(0);
+}
+
+.overlay h3{
+    margin-bottom:8px;
+}
+
+.overlay p{
+    font-size:14px;
+}
+
+@media(max-width:768px){
+    .gallery-title{
+        font-size:2rem;
+    }
+
+    body{
+        padding:20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<h1 class="gallery-title">📸 Creative Photo Gallery</h1>
+
+<div class="gallery">
+
+    <div class="gallery-item">
+        <img src="https://picsum.photos/id/1015/600/400" alt="Nature">
+        <div class="overlay">
+            <h3>Mountain View</h3>
+            <p>Beautiful landscape photography.</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://picsum.photos/id/1025/600/400" alt="Animal">
+        <div class="overlay">
+            <h3>Wildlife</h3>
+            <p>Capturing nature's beauty.</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://picsum.photos/id/1043/600/400" alt="Beach">
+        <div class="overlay">
+            <h3>Beach Sunset</h3>
+            <p>Golden hour by the sea.</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://picsum.photos/id/1069/600/400" alt="City">
+        <div class="overlay">
+            <h3>City Lights</h3>
+            <p>Modern urban lifestyle.</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://picsum.photos/id/1039/600/400" alt="Forest">
+        <div class="overlay">
+            <h3>Green Forest</h3>
+            <p>Peaceful and refreshing nature.</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://picsum.photos/id/1050/600/400" alt="Travel">
+        <div class="overlay">
+            <h3>Travel Adventure</h3>
+            <p>Explore the world around you.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* Product Section */
+.products{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.product{
+    background:white;
+    width:250px;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.product img{
+    width:100%;
+    border-radius:10px;
+}
+
+.product h3{
+    margin:10px 0;
+}
+
+.product p{
+    color:#2563eb;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+/* Cart */
+.cart{
+    margin-top:40px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.cart h2{
+    margin-bottom:15px;
+}
+
+.cart ul{
+    list-style:none;
+}
+
+.cart li{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.total{
+    margin-top:15px;
+    font-size:22px;
+    font-weight:bold;
+    color:green;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Shopping Cart System</h1>
+
+<div class="products">
+
+    <div class="product">
+        <img src="https://picsum.photos/250/180?1" alt="Product">
+        <h3>Laptop</h3>
+        <p>₹50,000</p>
+        <button onclick="addToCart('Laptop',50000)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="product">
+        <img src="https://picsum.photos/250/180?2" alt="Product">
+        <h3>Smartphone</h3>
+        <p>₹20,000</p>
+        <button onclick="addToCart('Smartphone',20000)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="product">
+        <img src="https://picsum.photos/250/180?3" alt="Product">
+        <h3>Headphones</h3>
+        <p>₹3,000</p>
+        <button onclick="addToCart('Headphones',3000)">
+            Add to Cart
+        </button>
+    </div>
+
+</div>
+
+<div class="cart">
+
+    <h2>Shopping Cart</h2>
+
+    <ul id="cartItems"></ul>
+
+    <div class="total">
+        Total: ₹<span id="total">0</span>
+    </div>
+
+</div>
+
+<script>
+
+let total = 0;
+
+function addToCart(product, price){
+
+    const cartItems =
+    document.getElementById("cartItems");
+
+    const li =
+    document.createElement("li");
+
+    li.textContent =
+    product + " - ₹" + price;
+
+    cartItems.appendChild(li);
+
+    total += price;
+
+    document.getElementById("total")
+    .textContent = total;
+}
+
+</script>
+
+</body>
+</html>

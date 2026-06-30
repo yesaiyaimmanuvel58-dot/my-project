@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Management System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.upload-section{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input[type="file"]{
+    margin-bottom:15px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.file-list{
+    margin-top:20px;
+}
+
+.file-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+.file-name{
+    font-weight:bold;
+}
+
+.actions button{
+    margin-left:5px;
+}
+
+.delete-btn{
+    background:red;
+}
+
+.delete-btn:hover{
+    background:darkred;
+}
+
+.download-btn{
+    background:green;
+}
+
+.download-btn:hover{
+    background:darkgreen;
+}
+
+@media(max-width:600px){
+    .file-item{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>File Management System</h1>
+
+    <div class="upload-section">
+        <input type="file" id="fileInput">
+        <br>
+        <button onclick="uploadFile()">Upload File</button>
+    </div>
+
+    <div class="file-list" id="fileList">
+        <!-- Files will appear here -->
+    </div>
+
+</div>
+
+<script>
+
+let files = [];
+
+function uploadFile(){
+
+    let fileInput =
+    document.getElementById("fileInput");
+
+    if(fileInput.files.length === 0){
+        alert("Please select a file.");
+        return;
+    }
+
+    let file = fileInput.files[0];
+
+    files.push(file);
+
+    displayFiles();
+
+    fileInput.value = "";
+}
+
+function displayFiles(){
+
+    let fileList =
+    document.getElementById("fileList");
+
+    fileList.innerHTML = "";
+
+    files.forEach((file,index)=>{
+
+        let fileItem = document.createElement("div");
+        fileItem.className = "file-item";
+
+        fileItem.innerHTML = `
+            <span class="file-name">
+                ${file.name}
+            </span>
+
+            <div class="actions">
+                <button class="download-btn"
+                onclick="downloadFile(${index})">
+                Download
+                </button>
+
+                <button class="delete-btn"
+                onclick="deleteFile(${index})">
+                Delete
+                </button>
+            </div>
+        `;
+
+        fileList.appendChild(fileItem);
+    });
+}
+
+function deleteFile(index){
+
+    files.splice(index,1);
+
+    displayFiles();
+}
+
+function downloadFile(index){
+
+    let file = files[index];
+
+    let url =
+    URL.createObjectURL(file);
+
+    let a =
+    document.createElement("a");
+
+    a.href = url;
+    a.download = file.name;
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+</script>
+
+</body>
+</html>

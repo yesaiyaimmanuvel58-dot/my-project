@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Management</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.profile-container{
+    background:white;
+    width:500px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.profile-container h2{
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+}
+
+.profile-pic{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.profile-pic img{
+
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:4px solid #2563eb;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#2563eb;
+    outline:none;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+@media(max-width:600px){
+    .profile-container{
+        width:90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="profile-container">
+
+    <h2>Profile Management</h2>
+
+    <div class="profile-pic">
+        <img src="https://static.vecteezy.com/system/resources/previews/047/521/694/non_2x/a-majestic-lion-stands-tall-in-the-grass-free-photo.jpg" alt="Profile Picture">
+    </div>
+
+    <form>
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" value="John Doe">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" value="john@example.com">
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" value="+91 9876543210">
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea rows="3">Chennai, Tamil Nadu</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Change Password</label>
+            <input type="password" placeholder="New Password">
+        </div>
+
+        <button type="submit" class="btn">
+            Update Profile
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

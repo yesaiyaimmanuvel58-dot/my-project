@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Role Based Access Control</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:450px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.dashboard{
+    display:none;
+    margin-top:20px;
+}
+
+.card{
+    background:#f3f4f6;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.role{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:15px;
+    font-size:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="loginSection">
+        <h2>Role Based Login</h2>
+
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter Username">
+        </div>
+
+        <div class="input-group">
+            <label>Select Role</label>
+            <select id="role">
+                <option value="Admin">Admin</option>
+                <option value="Manager">Manager</option>
+                <option value="User">User</option>
+            </select>
+        </div>
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div class="dashboard" id="dashboard">
+        <div class="role" id="roleTitle"></div>
+
+        <div id="menuItems"></div>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+</div>
+
+<script>
+
+function login(){
+
+    let username =
+    document.getElementById("username").value;
+
+    let role =
+    document.getElementById("role").value;
+
+    if(username === ""){
+        alert("Enter Username");
+        return;
+    }
+
+    document.getElementById("loginSection")
+    .style.display = "none";
+
+    document.getElementById("dashboard")
+    .style.display = "block";
+
+    document.getElementById("roleTitle")
+    .innerHTML =
+    "Welcome " + username + " (" + role + ")";
+
+    let menu = "";
+
+    if(role === "Admin"){
+        menu += '<div class="card">Dashboard</div>';
+        menu += '<div class="card">User Management</div>';
+        menu += '<div class="card">Role Management</div>';
+        menu += '<div class="card">Reports</div>';
+        menu += '<div class="card">System Settings</div>';
+    }
+
+    else if(role === "Manager"){
+        menu += '<div class="card">Dashboard</div>';
+        menu += '<div class="card">Team Management</div>';
+        menu += '<div class="card">Reports</div>';
+    }
+
+    else{
+        menu += '<div class="card">Dashboard</div>';
+        menu += '<div class="card">My Profile</div>';
+    }
+
+    document.getElementById("menuItems")
+    .innerHTML = menu;
+}
+
+function logout(){
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.settings-container{
+    width:500px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.settings-container h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.setting-group{
+    margin-bottom:20px;
+}
+
+.setting-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.setting-group input,
+.setting-group select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.setting-group input:focus,
+.setting-group select:focus{
+    border-color:#2563eb;
+    outline:none;
+}
+
+.checkbox-group{
+    margin-bottom:15px;
+}
+
+.checkbox-group input{
+    margin-right:10px;
+}
+
+.save-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.save-btn:hover{
+    background:lightblue;
+}
+
+@media(max-width:600px){
+    .settings-container{
+        width:90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="settings-container">
+
+    <h2>Settings</h2>
+
+    <form>
+
+        <div class="setting-group">
+            <label>Username</label>
+            <input type="text" value="JohnDoe">
+        </div>
+
+        <div class="setting-group">
+            <label>Email</label>
+            <input type="email" value="john@example.com">
+        </div>
+
+        <div class="setting-group">
+            <label>Language</label>
+            <select>
+                <option>English</option>
+                <option>Tamil</option>
+                <option>Hindi</option>
+            </select>
+        </div>
+
+        <div class="setting-group">
+            <label>Theme</label>
+            <select>
+                <option>Light</option>
+                <option>Dark</option>
+            </select>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" checked>
+            <label style="display:inline;">
+                Email Notifications
+            </label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox">
+            <label style="display:inline;">
+                SMS Notifications
+            </label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" checked>
+            <label style="display:inline;">
+                Enable Two-Factor Authentication
+            </label>
+        </div>
+
+        <button type="submit" class="save-btn">
+            Save Settings
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Image Slider</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.slider{
+    width:80%;
+    max-width:900px;
+    height:500px;
+    overflow:hidden;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    position:relative;
+}
+
+.slides{
+    display:flex;
+    width:400%;
+    height:100%;
+    animation:slide 16s infinite;
+}
+
+.slides img{
+    width:25%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Automatic Sliding */
+@keyframes slide{
+    0%,20%{
+        transform:translateX(0);
+    }
+    25%,45%{
+        transform:translateX(-25%);
+    }
+    50%,70%{
+        transform:translateX(-50%);
+    }
+    75%,100%{
+        transform:translateX(-75%);
+    }
+}
+
+/* Caption */
+.caption{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    color:white;
+    background:rgba(0,0,0,0.5);
+    padding:10px 20px;
+    border-radius:8px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .slider{
+        width:95%;
+        height:300px;
+    }
+
+    .caption{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="slider">
+
+    <div class="slides">
+
+        <img src="https://picsum.photos/id/1015/900/500" alt="Nature">
+
+        <img src="https://picsum.photos/id/1016/900/500" alt="Mountain">
+
+        <img src="https://picsum.photos/id/1025/900/500" alt="Bird">
+
+        <img src="https://picsum.photos/id/1035/900/500" alt="Beach">
+
+    </div>
+
+    <div class="caption">
+        Beautiful Responsive Image Slider
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Gateway</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .payment-card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+            width:350px;
+        }
+
+        h2{
+            color:#333;
+        }
+
+        .price{
+            font-size:32px;
+            color:#667eea;
+            margin:20px 0;
+            font-weight:bold;
+        }
+
+        button{
+            background:#667eea;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#5648d8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-card">
+    <h2>🛒 Complete Your Payment</h2>
+
+    <div class="price">₹999</div>
+
+    <button id="pay-btn">Pay Now</button>
+</div>
+
+<script>
+document.getElementById("pay-btn").onclick = function () {
+
+    var options = {
+        "key": "YOUR_RAZORPAY_KEY_ID",
+        "amount": "99900",
+        "currency": "INR",
+        "name": "ShopEase",
+        "description": "Product Purchase",
+        "image": "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+
+        "handler": function (response) {
+            alert(
+                "Payment Successful!\nPayment ID: "
+                + response.razorpay_payment_id
+            );
+        },
+
+        "prefill": {
+            "name": "Customer Name",
+            "email": "customer@example.com",
+            "contact": "9876543210"
+        },
+
+        "theme": {
+            "color": "#667eea"
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
+</script>
+
+</body>
+</html>

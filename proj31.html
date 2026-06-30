@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Image Upload System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.title{
+    text-align:center;
+    color:#4f46e5;
+    margin-bottom:25px;
+}
+
+.upload-box{
+    border:3px dashed #4f46e5;
+    border-radius:15px;
+    padding:40px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.upload-box:hover{
+    background:#f8f8ff;
+}
+
+.upload-box.dragover{
+    background:#eef2ff;
+    border-color:#7c3aed;
+}
+
+.upload-box h3{
+    color:#333;
+}
+
+.upload-box p{
+    color:#666;
+    margin:10px 0;
+}
+
+.browse-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:#4f46e5;
+    color:white;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+input[type=file]{
+    display:none;
+}
+
+.info{
+    margin-top:15px;
+    color:#555;
+    font-size:14px;
+}
+
+.preview-container{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:20px;
+}
+
+.image-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    position:relative;
+}
+
+.image-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.details{
+    padding:10px;
+    font-size:14px;
+}
+
+.progress{
+    width:100%;
+    height:8px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:8px;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#4f46e5;
+    transition:width .3s;
+}
+
+.remove-btn{
+    position:absolute;
+    top:8px;
+    right:8px;
+    background:red;
+    color:white;
+    border:none;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.success{
+    color:green;
+    font-size:13px;
+    margin-top:5px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">📤 Advanced Image Upload System</h1>
+
+    <div class="upload-box" id="dropArea">
+        <h3>Drag & Drop Images Here</h3>
+        <p>or</p>
+
+        <label class="browse-btn">
+            Browse Files
+            <input type="file"
+                   id="fileInput"
+                   multiple
+                   accept=".jpg,.jpeg,.png,.gif,.webp">
+        </label>
+
+        <div class="info">
+            Supported: JPG, PNG, JPEG, GIF, WEBP<br>
+            Maximum Size: 5 MB per image
+        </div>
+    </div>
+
+    <div class="preview-container" id="previewContainer"></div>
+
+</div>
+
+<script>
+
+const fileInput =
+document.getElementById("fileInput");
+
+const previewContainer =
+document.getElementById("previewContainer");
+
+const dropArea =
+document.getElementById("dropArea");
+
+const allowedTypes = [
+"image/jpeg",
+"image/png",
+"image/gif",
+"image/webp"
+];
+
+const maxSize = 5 * 1024 * 1024;
+
+fileInput.addEventListener("change", e=>{
+    handleFiles(e.target.files);
+});
+
+dropArea.addEventListener("dragover", e=>{
+    e.preventDefault();
+    dropArea.classList.add("dragover");
+});
+
+dropArea.addEventListener("dragleave", ()=>{
+    dropArea.classList.remove("dragover");
+});
+
+dropArea.addEventListener("drop", e=>{
+    e.preventDefault();
+    dropArea.classList.remove("dragover");
+    handleFiles(e.dataTransfer.files);
+});
+
+function handleFiles(files){
+
+    [...files].forEach(file=>{
+
+        if(!allowedTypes.includes(file.type)){
+            alert(file.name + " is not a valid image.");
+            return;
+        }
+
+        if(file.size > maxSize){
+            alert(file.name + " exceeds 5MB.");
+            return;
+        }
+
+        createPreview(file);
+    });
+}
+
+function createPreview(file){
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        const card =
+        document.createElement("div");
+
+        card.className = "image-card";
+
+        card.innerHTML = `
+            <button class="remove-btn">×</button>
+
+            <img src="${e.target.result}">
+
+            <div class="details">
+                <strong>${file.name}</strong><br>
+                ${(file.size/1024).toFixed(1)} KB
+
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+
+                <div class="success"></div>
+            </div>
+        `;
+
+        previewContainer.appendChild(card);
+
+        card.querySelector(".remove-btn")
+        .addEventListener("click", ()=>{
+            card.remove();
+        });
+
+        simulateUpload(card);
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function simulateUpload(card){
+
+    const progressBar =
+    card.querySelector(".progress-bar");
+
+    const success =
+    card.querySelector(".success");
+
+    let progress = 0;
+
+    const interval = setInterval(()=>{
+
+        progress += 10;
+
+        progressBar.style.width =
+        progress + "%";
+
+        if(progress >= 100){
+
+            clearInterval(interval);
+
+            success.innerHTML =
+            "✅ Upload Complete";
+        }
+
+    },150);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Homepage</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    line-height:1.6;
+}
+
+/* Header */
+header{
+    background:#003366;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Hero Section */
+.hero{
+    background:#f4f4f4;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+    color:#003366;
+}
+
+.hero p{
+    margin:15px 0;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    background:#003366;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* About Section */
+.about{
+    padding:50px;
+    text-align:center;
+}
+
+.about h2{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+/* Services Section */
+.services{
+    background:#f9f9f9;
+    padding:50px;
+}
+
+.services h2{
+    text-align:center;
+    color:#003366;
+    margin-bottom:30px;
+}
+
+.service-container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.service-box{
+    background:white;
+    padding:20px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    border-radius:8px;
+}
+
+/* Contact Section */
+.contact{
+    padding:50px;
+    text-align:center;
+}
+
+.contact h2{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+/* Footer */
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+    }
+
+    nav ul{
+        flex-direction:column;
+        text-align:center;
+        margin-top:10px;
+    }
+
+    nav ul li{
+        margin:10px 0;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h2>ABC Company</h2>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Welcome to ABC Company</h1>
+    <p>Providing innovative solutions for your business growth.</p>
+    <a href="#contact" class="btn">Contact Us</a>
+</section>
+
+<section class="about" id="about">
+    <h2>About Us</h2>
+    <p>
+        ABC Company is dedicated to delivering high-quality services
+        and innovative solutions to help businesses succeed.
+    </p>
+</section>
+
+<section class="services" id="services">
+    <h2>Our Services</h2>
+
+    <div class="service-container">
+        <div class="service-box">
+            <h3>Web Development</h3>
+            <p>Modern and responsive website development.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Digital Marketing</h3>
+            <p>Grow your online presence and reach more customers.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Business Consulting</h3>
+            <p>Expert guidance for business growth and success.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@abccompany.com</p>
+    <p>Phone: +91 7397102746</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 ABC Company. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

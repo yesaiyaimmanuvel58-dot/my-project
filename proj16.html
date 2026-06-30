@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonial Section</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.testimonial-section{
+    max-width:1200px;
+    width:100%;
+    text-align:center;
+}
+
+.testimonial-section h1{
+    color:white;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+.testimonial-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    width:320px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin-bottom:15px;
+    border:4px solid #667eea;
+}
+
+.card h3{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.card h5{
+    color:#667eea;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#555;
+    line-height:1.6;
+}
+
+.stars{
+    color:gold;
+    font-size:20px;
+    margin-top:15px;
+}
+
+/* Responsive Design */
+@media(max-width:768px){
+    .testimonial-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="testimonial-section">
+
+    <h1>What Our Clients Say</h1>
+
+    <div class="testimonial-container">
+
+        <div class="card">
+            <img src="https://i.pravatar.cc/150?img=1" alt="User">
+            <h3>John Smith</h3>
+            <h5>Web Developer</h5>
+            <p>
+                Excellent service and amazing support.
+                The website design exceeded my expectations.
+            </p>
+            <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="card">
+            <img src="https://i.pravatar.cc/150?img=5" alt="User">
+            <h3>Emma Wilson</h3>
+            <h5>Business Owner</h5>
+            <p>
+                Professional team with outstanding work.
+                Highly recommended for web projects.
+            </p>
+            <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="card">
+            <img src="https://i.pravatar.cc/150?img=8" alt="User">
+            <h3>David Miller</h3>
+            <h5>Designer</h5>
+            <p>
+                Fast delivery, modern design, and great
+                customer support throughout the project.
+            </p>
+            <div class="stars">★★★★★</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
